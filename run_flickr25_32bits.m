@@ -78,12 +78,6 @@ tst_label = load(test_label_file);
 B = compactbit(binary_train');
 tB = compactbit(binary_test');
 
-%% method1
-% Dhamm = hammingDist(B, tB);
-% [P2] = perf_metric4Label(trn_label, tst_label, Dhamm);
-% map1 = P2;
-
-%% method2
 % presion 500
 result_hrank = calcMapTopkMapTopkPreTopkRecLabel(tst_label, trn_label, tB, B, 500);
 map2      = result_hrank.map;

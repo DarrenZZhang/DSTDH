@@ -69,6 +69,16 @@ else
     echo 'B32 Delete!'
 fi
 
+##########################################
+echo "extract fc7 features"
+cd fc7_features
+python extract_features32.py vgg_16 ../caffemodels/VGG_ILSVRC_16_layers.caffemodel ../$ROOT_FOLDER ../flickr_25/train_file_list.txt fc7 traindata_32
+echo "generate .mat file -> ./fc7_features/traindata_32.txt"
+
+python extract_features32.py vgg_16 ../caffemodels/VGG_ILSVRC_16_layers.caffemodel ../$ROOT_FOLDER ../flickr_25/train_file_list.txt tanh8_32bits tanx_32
+cd ..
+echo "generate .mat file -> ./fc7_features/tanx_32.txt"
+
 echo "2.STDH algorithm"
 cd STDH
 matlab -nojvm -nodesktop -r "alpha=$alpha,beta=$beta,nAnchorA=$nAnchorA,nAnchorH=$nAnchorH,sA=$sA,sigmaA=$sigmaA,sigmaH=$sigmaH,mu=$mu,pho=$pho,nu=$nu;run STDH_32.m; quit;"
@@ -83,4 +93,4 @@ echo "finetuning finished!"
 
 echo "4.test"
 matlab -nojvm -nodesktop -r "run ./run_flickr25_32bits.m; quit;"
-echo "test1 finished!"
+echo "test finished!"
