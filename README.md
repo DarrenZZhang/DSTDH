@@ -1,4 +1,5 @@
-# DSTDH
+# DSTDH Dual-level Semantic Transfer Deep Hashing
+H. Cui, L. Zhu, Z. Cheng, J. Li, Z. Zhang, Dual-level Semantic Transfer Deep Hashing for Efficient Social Image Retrieval, IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 31(4): 1478-1489, 2021.
 
 **Prerequisites**
 1.	Requirements for Caffe, pycaffe and matcaffe.
